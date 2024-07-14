@@ -1,0 +1,19 @@
+name: Release to Production
+
+on: push
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    container:
+      image: salesforce/cli:2.49.4-slim
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+    - name: Run Code Scan
+      run: |
+        git config --global safe.directory '*'
+        sfdx update
+        sf plugins install @salesforce/sfdx-scanner
+        git fetch --all --quiet
+        sf scanner run --format json --target force-app
