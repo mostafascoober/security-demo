@@ -16,4 +16,4 @@ jobs:
         sfdx update
         sf plugins install @salesforce/sfdx-scanner
         git fetch --all --quiet
-        sf scanner run --format json --target force-app
+        sf scanner run --format json --target security-demo/force-app
