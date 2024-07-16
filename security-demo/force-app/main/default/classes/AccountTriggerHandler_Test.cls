@@ -1,3 +1,4 @@
+@isTest
 public with sharing class AccountTriggerHandler_Test {
     @isTest
     public static void testAccountClassAutomation(){
